@@ -1,3 +1,13 @@
-body {
-  font-family: "Work Sans", sans-serif
+/* All the classes at the top */
+
+.title {
+  font-size: 2.0em;
+  line-height: 1.25;
+  text-align: center
 }
+
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+
