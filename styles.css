@@ -1,0 +1,60 @@
+/* Using Adwaita color scheme, here are the colors I use:
+  Blue 4:     #1C71D8
+  Purple 4:   #813D9C
+  Light 2:    #F6F5F4
+  Dark 2:     #5E5C64
+*/
+
+/* 
+  First we start by defining the fonts.
+*/
+
+html {
+  -text-rendering: optimizeLegibiliy !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+@font-face {
+  font-family: "Cantarell";
+  src: url('fonts/Cantarell-VF.otf');
+  font-weight: 400;
+}
+
+.title {
+  font-size: 4.0em;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.intro {
+  background-color: #813D9C;
+  margin: 0 0 2rem;
+  padding: 3rem 0 3rem;
+  text-align: center;
+}
+
+.bio {
+  background-color: #1C71D8;
+  margin: 0 0 2rem;
+  padding: 2rem 0 2rem;
+  text-align: left;
+}
+
+.container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+body {
+  font-family: "Cantarell";
+  line-height: 1.2;
+  font-size: 22px;
+  margin: 0;
+  padding: 0;
+  
+  background-color: #F6F5F4;
+}
+
+
