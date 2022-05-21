@@ -1,4 +1,4 @@
-/* Using Adwaita color scheme, here are the colors I use:
+/* Old version of website uses these colors from Adwaita, included for legacy needs:
   Blue 4:     #1C71D8
   Purple 4:   #813D9C
   Light 2:    #F6F5F4
@@ -6,28 +6,29 @@
   Dark 5:     #000000
 */
 
-/* New iteration of website uses Nord theme: https://github.com/arcticicestudio/nord.
-  Polar Night:
-    nord0:            #2E3440
-    nord1:            #3B4252
-    nord2:            #434C5E
-    nord3:            #4C566A
-  Snow Storm:
-    nord4:            #D8DEE9
-    nord5:            #E5E9F0
-    nord6:            #ECEFF4
-  Frost (Blues):
-    nord7:            #8FBCBB
-    nord8:            #88C0D0
-    nord9:            #81A1C1
-    nord10:           #5E81AC
-  Aurora:
-    nord11 (Red):     #BF616A
-    nord12 (Orange):  #D08770
-    nord13 (Yellow):  #EBCB8B
-    nord14 (Green):   #A3BE8C
-    nord15 (Purple):  #B48EAD
-*/
+:root {
+  /* New iteration of website uses Nord theme: https://github.com/arcticicestudio/nord. */
+  /* Polar Night */
+  --nord0:  #2E3440;
+  --nord1:  #3B4252; 
+  --nord2:  #434C5E;
+  --nord3:  #4C566A;
+  /* Snow Storm */
+  --nord4:  #D8DEE9;
+  --nord5:  #E5E9F0;
+  --nord6:  #ECEFF4;
+  /* Frost */
+  --nord7:  #8FBCBB;
+  --nord8:  #88C0D0;
+  --nord9:  #81A1C1;
+  --nord10: #5E81AC;
+  /* Aurora */
+  --nord11: #BF616A;
+  --nord12: #D08770;
+  --nord13: #EBCB8B;
+  --nord14: #A3BE8C;
+  --nord15: #B48EAD;
+}
 
 html {
   -text-rendering: optimizeLegibiliy !important;
@@ -64,25 +65,27 @@ html {
 }
 
 .name {
-  color: #a3be8c;
+  color: var(--nord8);
   font-size: 4em;
   font-weight: 900;
+  line-height: 0;
 }
 
 .subtitle {
   font-size: 1.4rem;
-  color: #D8DEE9;
+  color: var(--nord4);
+  margin-bottom: 12px;
 }
 
 .text {
   font-size: 1.1rem;
-  line-height: 1.4;
 }
 
 .title {
-  color: #81A1C1;
+  color: var(--nord9);
   font-size: 3rem;
-  line-height: 0;
+  line-height: 1;
+  margin-bottom: 12px;
 }
 
 hr.divider {
@@ -97,13 +100,13 @@ hr.smaller {
 
 body {
   font-family: "Cantarell";
-  color: #ECEFF4;
-  line-height: 0.2;
+  color: var(--nord6);
+  line-height: 1.4;
   font-size: 22px;
   margin: 0;
   padding: 0;
   
-  background-color: #2E3440;
+  background-color: var(--nord0);
 }
 
 
