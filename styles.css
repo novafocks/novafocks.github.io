@@ -6,6 +6,29 @@
   Dark 5:     #000000
 */
 
+/* New iteration of website uses Nord theme: https://github.com/arcticicestudio/nord.
+  Polar Night:
+    nord0:            #2E3440
+    nord1:            #3B4252
+    nord2:            #434C5E
+    nord3:            #4C566A
+  Snow Storm:
+    nord4:            #D8DEE9
+    nord5:            #E5E9F0
+    nord6:            #ECEFF4
+  Frost (Blues):
+    nord7:            #8FBCBB
+    nord8:            #88C0D0
+    nord9:            #81A1C1
+    nord10:           #5E81AC
+  Aurora:
+    nord11 (Red):     #BF616A
+    nord12 (Orange):  #D08770
+    nord13 (Yellow):  #EBCB8B
+    nord14 (Green):   #A3BE8C
+    nord15 (Purple):  #B48EAD
+*/
+
 html {
   -text-rendering: optimizeLegibiliy !important;
   -moz-osx-font-smoothing: grayscale !important;
@@ -18,7 +41,6 @@ html {
 }
 
 .bio {
-  background-color: #F6F5F4;
   margin: 0 0 2rem;
   padding: 1rem 0 1rem;
   text-align: left;
@@ -30,54 +52,58 @@ html {
   margin-right: auto;
 }
 
+.pfp {
+  float: left;
+  width: 8%;
+  margin: 10px;
+}
+
 .intro {
-  background-color: #F6F5F4;
   margin: 0 0 2rem;
   padding: 2rem 0 2rem;
 }
 
-.subtitle {
-  font-size: 1.4rem;
-  color: #5E5C64;
+.name {
+  color: #a3be8c;
+  font-size: 4em;
+  font-weight: 900;
 }
 
-.name {
-  font-size: 4.0em;
-  font-weight: 900;
+.subtitle {
+  font-size: 1.4rem;
+  color: #D8DEE9;
 }
 
 .text {
   font-size: 1.1rem;
+  line-height: 1.4;
 }
 
 .title {
+  color: #81A1C1;
   font-size: 3rem;
-  line-height: 0.2;
+  line-height: 0;
 }
 
 hr.divider {
   width: 650px;
-  margin-left: auto;
-  margin-right: auto;
   margin: 0;
 }
 
 hr.smaller {
-  width: 250px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 200px;
   margin: 0;
 }
 
 body {
   font-family: "Cantarell";
-  color: #000000;
+  color: #ECEFF4;
   line-height: 0.2;
   font-size: 22px;
   margin: 0;
   padding: 0;
   
-  background-color: #F6F5F4;
+  background-color: #2E3440;
 }
 
 
