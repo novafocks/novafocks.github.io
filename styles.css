@@ -95,12 +95,13 @@ hr {
 }
 
 hr.divider {
-  width: 650px;
+  width: 100%;
+  max-width: 650px;
   margin: 0;
 }
 
 hr.smaller {
-  width: 100px;
+  max-width: 100px;
   margin: 0;
 }
 
