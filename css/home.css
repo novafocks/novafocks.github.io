@@ -1,0 +1,65 @@
+@import "root.css";
+
+.box {
+    width: 80%;
+    margin: auto;
+    margin-top: 150px;
+    padding: 5px;
+
+    border: solid 2px var(--bg2);
+    background-color: var(--bg2);
+    border-radius: 20px;
+
+    justify-content: center;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.divider {
+    width: 100%;
+    border: solid 2px var(--fg2);
+    border-radius: 2px;
+}
+
+.name {
+    font-family: Fira Sans Black;
+    font-size: 2.5em;
+    color: var(--green1);
+    
+    margin-top: 0.4em;
+    margin-bottom: 0px;
+}
+
+.subname {
+    margin: auto;
+    font-size: 1.2em;
+    color: var(--orange1);
+}
+
+a {
+    color: var(--fg0);
+}
+
+body {
+    font-family: Fira Sans;
+    font-size: 1.1em;
+    font-kerning: auto;
+
+    background-color: var(--bg1);
+    color: var(--fg1);
+}
+
+img {
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    width: 100%;
+    border-radius: 10px;
+}
+
+li, p {
+    font-size: 1.1em;
+    line-height: 1.4em;
+}

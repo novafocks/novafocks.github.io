@@ -1,0 +1,58 @@
+@import "root.css";
+
+:root {
+    --fursona-black0:       #0b0115;
+    --fursona-black1:       #0c0112;
+    --fursona-purple0:      #43089b;
+    --fursona-purple1:      #7400ae;
+    --fursona-purple2:      #390059;
+    --fursona-white:        #ffffff;
+
+    --fursona-ui-purple:    #1c0038;
+}
+
+.box {
+    width: 90%;
+    margin: auto;
+    background-color: var(--fursona-ui-purple);
+    border-radius: 5px;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.divider {
+    border: 2px solid var(--fursona-white);
+    border-radius: 2px;
+}
+
+.name {
+    padding-top: 30px;
+    margin-bottom: 10px;
+}
+
+a {
+    color: var(--fursona-purple1);
+    text-decoration: none;
+    border-bottom: 3px solid;
+}
+
+body {
+    background-color: var(--fursona-black0);
+    font-family: Fira Sans Black;
+    color: var(--fursona-white);
+}
+
+img {
+    display: block;
+
+    max-width: 1080px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
