@@ -42,3 +42,21 @@
     src: url('/fonts/FiraSans-Black.ttf');
     font-family: Fira Sans Black;
 }
+
+.box {
+    width: 80%;
+    margin: auto;
+    margin-top: 2em;
+    padding: 2em;
+    border-radius: 20px;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.divider {
+    width: 100%;
+    border-radius: 2px;
+}
