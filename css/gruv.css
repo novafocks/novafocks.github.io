@@ -9,16 +9,11 @@
     border: solid 2px var(--fg2);
 }
 
-.name {
-    font-family: Fira Sans Black;
-    font-size: 2.5em;
+.header {
     color: var(--green1);
-    margin: 0;
 }
 
-.subname {
-    margin-top: 0px;
-    margin-bottom: 0.8em;
+.subheader, .subsection {
     color: var(--orange1);
 }
 
@@ -27,14 +22,6 @@ a {
 }
 
 body {
-    font-family: Fira Sans;
-    font-size: 1.21em;
-    font-kerning: auto;
-
     background-color: var(--bg1);
     color: var(--fg1);
-}
-
-li, p {
-    line-height: 1.6em;
 }

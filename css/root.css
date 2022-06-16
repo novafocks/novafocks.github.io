@@ -60,3 +60,40 @@
     width: 100%;
     border-radius: 2px;
 }
+
+/* 
+- Header should be used with h1 and subheader/subsection with h3
+- Subheader should be used under header, subsection should be used for subsections
+*/
+
+.header {
+    font-family: Fira Sans Black;
+    font-size: 2em;
+    margin-top: 0px; 
+    margin-bottom: 0px;
+}
+
+.subheader {
+    margin-top: 0px;
+    margin-bottom: 0.4em;
+}
+
+.subsection {
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+}
+
+a, u {
+    text-decoration: none;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+
+body {
+    font-family: Fira Sans;
+    font-size: 1.21em;
+}
+
+li, p {
+    line-height: 1.6em;
+}

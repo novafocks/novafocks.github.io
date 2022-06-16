@@ -20,22 +20,17 @@
     border: 2px solid var(--fursona-white);
 }
 
-.name {
-    font-family: Fira Sans Black;
-    font-size: 2.5em;
+.header {
     color: var(--fursona-white);
+    font-size: 1.5em;
 }
 
 a {
     color: var(--fursona-purple1);
-    text-decoration: none;
-    border-bottom: 3px solid;
 }
 
 body {
     background-color: var(--fursona-black0);
-    font-family: Fira Sans Black;
-    color: var(--fursona-white);
 }
 
 img {
@@ -44,8 +39,8 @@ img {
 
     max-width: 1080px;
     width: 100%;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
     margin-left: auto;
     margin-right: auto;
 }
