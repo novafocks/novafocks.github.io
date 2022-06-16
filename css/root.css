@@ -83,12 +83,6 @@
     margin-bottom: 0.4em;
 }
 
-a, u {
-    text-decoration: none;
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
-}
-
 body {
     font-family: Fira Sans;
     font-size: 1.21em;
