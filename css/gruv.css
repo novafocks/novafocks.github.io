@@ -25,3 +25,10 @@ body {
     background-color: var(--bg1);
     color: var(--fg1);
 }
+
+code {
+    background-color: var(--bg1);
+    border-color: var(--bg1);
+    border-radius: 3px;
+    color: var(--fg1);
+}

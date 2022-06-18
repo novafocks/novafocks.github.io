@@ -43,6 +43,11 @@
     font-family: Fira Sans Black;
 }
 
+@font-face {
+    src: url('/fonts/FiraCode-VariableFont_wght.ttf');
+    font-family: Fira Code;
+}
+
 .box {
     width: 80%;
     margin: auto;
@@ -86,6 +91,11 @@
 body {
     font-family: Fira Sans;
     font-size: 1.21em;
+}
+
+code {
+    font-family: Fira Code;
+    border: solid 3px;
 }
 
 li, p {
