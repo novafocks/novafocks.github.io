@@ -6,7 +6,7 @@
 
     <div class="box">
         <div class="container">
-            <h1 class="header">Introducing Programming in C</h1>
+            <h1 class="header">2022-06-18 - Introducing Programming in C</h1>
             <h3 class="subheader">Here a point, there a point, everywhere a point point</h3>
             <hr class="divider">
             <p>
@@ -21,10 +21,9 @@
                 C, despite how old it is, seems to have aged decently enough. After all, it powers a massive portion of the kernel of the OS which I'm using to type this blog. That, of course, might change given Rust's introduction into the Linux kernel as an easier solution to implement drivers and stuff, but that's a topic for another day. C works incredibly close to the hardware and is easy enough for someone to learn by itself, granted you don't make any stupid mistakes in memory allocation. When working with audio, this means that it is quite efficient but also practical to code, which are two important facets of working with audio.
                 <br><br>
                 However, one of the technologies most used in C and C++ is the pointer system, which I struggled to wrap my mind around before looking into it some. So before getting into how C works with audio directly, I just wanted to demonstrate how pointers work on a fundamental level, and what better way than with a simple example? Fair warning that you should be familiar with the basics of C syntax.
-                <br><br>
             </p>
-            <code>
-                #include<stdio.h><br>
+            <div class="multi">
+                #include &lt;stdio.h&gt;<br>
                 <br>
                 int main() {<br>
                     &emsp;int x = 15;<br>
@@ -36,8 +35,7 @@
                     &emsp;int y = *ptr;<br>
                     &emsp;printf("The value of y, dereferenced from the pointer, is %d\n", y);<br>
                 }<br>
-            </code>
-            <p style="color: var(--red1);"><b>Editor's note: I agree that this looks awful for right now. I will fix that later and make it look as intended, especially given that future pages may rely on beautiful and easy to implement code insertion. Thank you for understanding.</b></p>
+            </div>
             <p>
                 So let's break this down line by line, leaving behind importing the standard library and creating the main function. First we created an integer variable <code>x</code>, assigned the value of 15. We then printed it out using the <code>printf()</code> function from the C standard library. That's self-explanatory. Where it becomes particularly tricky is when we start playing with the pointers.
                 <br><br>
@@ -49,11 +47,11 @@
                 <br><br>
                 Now here's the coolest part. We declare an entirely new and unrelated integer, <code>y</code>. But we're assigning it the <code>ptr</code> variable with another asterisk or star (<code>*</code>). Given that the <code>ptr</code> variable stores the pointer for <code>x</code>, we can reference the variable value using that knowledge. In this case, that asterisk or star designates the value rather than the pointer itself. And from this, we can finally review our output.
             </p>
-            <code>
+            <div class="multi">
                 The value of x is 15<br>
                 The pointer of x is -1749144944<br>
                 The value of y, dereferenced from the pointer, is 15<br>
-            </code>
+            </div>
             <p>
                 Everything seems to be in order! The value of the variable <code>x</code> is 15 as it should be, the pointer value references a location in memory, and the value of <code>y</code> can be extracted directly from the information provided by that pointer.
             </p>  
@@ -61,6 +59,7 @@
             <p>
                 I didn't really have the motivation to work too much further on today's blog, it took a while to make sure I knew everything else about C and the Signals and Systems textbook is intimidating me at the current moment. But tomorrow, I promise we're gonna make a strong introduction into both the math side of signal processing and implementing audio in C, because I have the full Sunday tomorrow to look into it. Playing The Legend of Zelda: Breath of the Wild the whole time instead is alluring for certain, and I might pop in and out of it a bit, but it's not a passion project if you're not passionate about it. This is my passion project, and I struggle with motivation a lot of the time, so I consider these setbacks both perfectly understandable and also obstacles to overcome. I'm proud of the work I've done on this blog, but one thing I must admit is there's an astounding lack of technical explanation and diving deep into concept and application. If you disagree, good for you, but I would like to set my standards higher going forward. While I am writing this for the enjoyment of readers, my first priority is learning. That being said, it's quite late, so I'll be back tomorrow with an in-depth post! Have a good night, y'all!
             </p>
+            <p><a href="/blog/index.html">Back to Catalogue</a></p>
         </div>
     </div>
 </html>

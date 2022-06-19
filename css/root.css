@@ -78,6 +78,15 @@
     margin-bottom: 0px;
 }
 
+.multi {
+    font-family: Fira Code;
+    font-size: 0.9em;
+    
+    width: 95%;
+    margin: auto;
+    padding: 1em;
+}
+
 .subheader {
     margin-top: 0px;
     margin-bottom: 0.4em;
@@ -95,6 +104,7 @@ body {
 
 code {
     font-family: Fira Code;
+    font-size: 0.9em;
     border: solid 3px;
 }
 
