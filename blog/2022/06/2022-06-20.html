@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/gruv.css">
+    </head>
+
+    <body>
+        <div class="box">
+            <div class="container">
+                <h1 class="header">2022-06-20 - The Big Blog</h1>
+                <h3 class="subheader">The big one!</h3>
+                <hr class="divider">
+                <img src="/images/thebigone.gif" style="max-width: 960px; width: 95%; margin-bottom: 0px;">
+                <h6 style="margin-top: 1em; color: var(--fg3);"><i>Courtesy of <a href="https://www.youtube.com/c/wayneradiotv" style="color: var(--fg2);">wayneradiotv.</a></i></h6>
+                <p style="color: var(--orange1)"><i>
+                    Disclaimer: this was intended to be released yesterday, but I bit off more than I could chew with the content I wanted to cover for the day. So I decided to take an extra day to complete it. I also completely forgot it was Father's Day before I wrote it, and thus got quite sidetracked doing stuff with my parents. 
+                    <br><br>
+                    And I'll be completely honest and say that those setbacks were only 40% of why I didn't complete the blog yesterday. This passion project of mine was starting to feel more like an obligation today rather than something I wanted to study, mainly because I felt like I had to live up to the large expectations I placed on myself. Studying shouldn't be for the sake of learning after all, but for pushing some long blog! 
+                    <br><br>
+                    Anyways, I guess that's my personal reminder to just chill, and if there's a delay in when the blog gets released, that's okay. Even though it's summer, I still have other obligations and personal obligations, and I can't let down my needs. But what that doesn't mean is to neglect my content; I still want to ensure I'm finishing my work reasonably. Phew! That aside, onto today's post!
+                </i></p>
+                <p>
+                    Stranger Things is such an awesome show. Everything from the way it's shot, the way the story is told, and particularly the soundtrack, it's all incredible. Me and my parents just finished re-watching the first season of it today, and it was so much better than I remember. Not to say I disliked it before, but everything really came to live seeing it older. But speaking of the soundtrack in particular, it was practically all vintage synthesizers of some form, which is why I thought it would be fun today to break down the signal flow of a standard subtractive synth. As a treat. But first, it's Juneteenth!
+                </p>
+                <h3 class="subsection"><u>Happy Juneteenth!</u></h3>
+                <p>
+                    Just in case you don't know what it is, it commemorates the day when federal troops began to enforce the Emancipation Proclamation, and honors the start of the true end of slavery for most.
+                    <br><br>
+                    I know that it's not really my place to provide any commentary on racism, given that I'm white. So I won't, but I will remind everyone reading that the fight for racial equality is not over. Please, if you can, donate to organizations fighting for it, or even protest yourself. Here are a few organizations, though there are many more:
+                    <ol style="color: var(--yellow0)">
+                        <li><a href="https://naacp.org/" style="color: var(--yellow1)">NAACP</a></li>
+                        <li><a href="https://blacklivesmatter.com/" style="color: var(--yellow1)">Black Lives Matter</a></li>
+                        <li><a href="https://www.aclu.org/" style="color: var(--yellow1)">ACLU - also advocating for women's rights to choose and LGBTQ+ rights (completely forgot to mention anywhere else - happy Pride Month! :D)</a></li>
+                    </ol>
+                </p>
+                <p>
+                    I'm not an expert in this subject, so I also highly encourage you to search for resources written by those who are.
+                    <br><br>
+                    Just wanted to include this section because I believe it to be an important message to spread in the tech field; many people believe that racism, alongside other forms of discrimination, is a relic of the past, and I don't need to make any commentary on racism to state with certainty that's very much not true. Thank you for your time on that.
+                </p>
+                <h3 class="subsection"><u>Breaking Down a Synthesizer</u></h3>
+                <p>
+                    That being said, let's start breaking down the individual parts to a synthesizer! To start, I should specify: what exactly is a synthesizer? If you're imagining something you might see from an 80's music video, then your brain is on track, but I want to broaden the picture before focusing it on musical applications. All an <b class="important">audio</b> synthesizer does is create sounds, aka changes of pressure in the air, from electric signals (synthesizer without any context just implies you're creating something from electric signals, "synthesizers" are just the common term for audio synthesizers created for music). Some are specifically designed to replicate the human voice, called speech synthesizers, just to give a different example.
+                    <br><br>
+                    From now on, I'll be using "synthesizer" in the context of one you'd use for music. Additionally, this is for a form of synthesis commonly called subtractive synthesis, as I stated earlier. Additional forms of synthesis are frequency modulation synthesis (or FM), phase modulation synthesis (or PM), and additive synthesis. We can dive into those later when I have a better mathematical understanding of how they work.
+                    <br><br>
+                    Subtractive synthesis is probably used most often in the songs you listen to, particularly if you're listening to synthwave or anything from the 80's or 80's inspired. And to describe it in short, we're creating a signal that we then shape by subtracting some parts of it. At a later date I'll be able to explain it more mathematically, but for now I'll be speaking purely conceptually.
+                    <br><br>
+                    The first and most important component of the synthesizer is the <b class="important">oscillator</b>, which produces the base sound that we'll be sculpting in a variety of ways. Oscillators are just repeatable and continuous signals with an inherent frequency, and in this case they should be well within the audible range of hearing. The audible range of hearing, just in case, is generally between 20Hz and 20kHz.
+                    <br><br>
+                    You may hear them under their other names, VCO and DCO, which stand for "voltage controlled oscillator" and "digitally controlled oscillator" respectively. The former states that the frequency of the oscillator is being controlled via voltage, and the latter states that the frequency is being controlled digitally. In both cases, the oscillator is being generated using analog circuitry. An oscillator, of course, can be generated digitally, usually by means of a computer.
+                    <br><br>
+                    So I mentioned earlier that an oscillator is just a repeatable and continuous signal, but you might wonder what kinds of signals are often used. Well, sine waves can be used for certain, and in many cases they are! In fact, sine waves are particularly cool because if you use a spectrum analyzer on the wave, they generate points at their base frequency and nothing more. This is something that a peculiar man named Fourier thought was kind of cool and decided to do some crazy stuff with, but I'm getting ahead of myself. Sine waves are used often in FM, PM, and additive synthesis, but not subtractive because it doesn't generate a very shape-able sound.
+                    <br><br>
+                    The most commonly used waves in subtractive synthesis are <b class="important">sawtooth waves</b> and <b class="important">pulse waves</b>. But wait, what are those? Well, a sawtooth wave, or saw wave, is so named because when put on an oscilloscope, they look like the teeth of a saw! And when put on a spectrum analyzer, they generate a tone at the base frequency and all the way up the scale, creating a sound that is pleasing on its own but most importantly harmonically rich (harmonics, in this case, being individual tones that are specific multiples of the original, and give the sound a certain character).
+                    <br><br>
+                    Pulse waves are a bit different and have an interesting factor when you're using them in synthesis. You likely know that all a pulse wave is, is a wave that gives a signal for "off and on", kind of like a light switch, except in this case it stays consistent (unless you change it, but that's for a little later). Square waves are created when the period of time in which the signal is "off" is equal to the time that the signal is "on". You've likely heard pulse waves and square waves if you've ever listened to an old NES game's soundtrack or even chiptune music, because those often comprised the "main instruments" in each song.
+                    <br><br>
+                    An important aspect I'd like to highlight about these waves so far: when visualized on a frequency spectrum, we can see that they have a lot of harmonics, or additional tones, past their base frequency. This means that we can shape it and create unique sounds. But how exactly are we going to shape it?
+                    <br><br>
+                    <b class="important">Filters</b>! They're the second most important part of shaping the sound of a synthesizer. To try and explain it conceptually with a hint of math, the signals we're going to want to shape occupy a large range of frequencies, but let's say we want to take some of them away. A filter is essentially a volume control for certain frequency ranges, meaning it will affect different frequencies unevenly. 
+                    <br><br>
+                    The most common one you'll see in music is the <b class="important">low-pass filter</b>. You can also call it a high-cut filter if that helps, but very few people (or synthesizers) label them that way. It's called a low-pass filter because it allows frequencies below its cutoff point to pass freely, while cutting off the higher frequencies. The cutoff point is the specification for where the filter will start cutting off said frequencies. Let's give the example that the cutoff point is at 4kHz. After that, the filter will start a slope that cuts off frequencies above that point by a certain amount. Common slopes are usually multiples of -6dB per octave.
+                    <br><br>
+                    High-pass filters do the same exact thing, but they allow the higher frequencies to pass while the low frequencies are cut off before the cutoff point.  Bandpass filters do both of these at the same time!
+                    <br><br>
+                    However, synthesizers usually sound like an actual instrument, and although this is plenty to get us started, what really brings them alive is introducing <b class="important">change over time</b>. And we can do that primarily through two methods: <b class="important">envelopes</b> and <b class="important">low frequency oscillators</b>.
+                    <br><br>
+                    Envelopes are one-time signals sent when you press a key on the keyboard with multiple stages. The most common type of envelope is the ADSR, which stands for attack, decay, sustain, and release. 
+                    <br><br>
+                    So let's say you play a key on the keyboard, and this ADSR envelope controls the volume of the signal. The attack value is represented by a period of time by which it takes to reach the maximum value. Let's say that this value is 400ms for right now, so it takes 400ms for the sound to go from inaudible to full volume. The decay value represents another period of time to reach the sustain value. The sustain value is a level, usually represented as percentage of the maximum value, that the volume will stay at for as long as you hold the key. For the sake of this example, the decay value is 500ms, and the sustain value is 50%. After the attack value has reached maximum amplitude after 400ms, the volume immediately starts going down again, and after 500ms it will have reached 50% volume. Finally, the release value represents how long it takes for the value to return back to 0. In this example, the release value will be 100ms. So after you let go of the key on the keyboard, the volume will take 100ms to be inaudible again.
+                    <br><br>
+                    Phew, that was a lot of technical jargon and likely hard to follow. But fortunately, low-frequency oscillators are easier. We've already covered what oscillators do, and we know it's just a repeatable signal. So what if we slowed it down? In that case, you have an oscillator that is likely below the audible range, but is quite useful for manipulating other signals.
+                    <br><br>
+                    And that is precisely the point for including envelopes and LFOs (short for low frequency oscillators) in synthesizers! We can use these signals to change <b>other</b> signals over time. In the example for envelopes, I said that it was attached to volume. While many synthesizers have a dedicated amplitude, or volume, envelope, many also have dedicated filter envelopes. Many of your favorite synthesizer sounds come from using an envelope to change the cutoff of a low-pass filter! LFOs, to give a cool example, can affect the pitch if you set them to, which if configured at the right rate and depth of change, gives a beautiful vibrato effect.
+                    <br><br>
+                    This is just the beginning for getting technical with synthesizers. I haven't even gotten into VCAs, wavefolders, low-pass gates or LPGs, triangle waves, and so many more.
+                    <br><br>
+                    If you want to have a slightly more in-depth, and honestly more well done, explanation of the basics of synthesis, check out <a href="https://learningsynths.ableton.com/">Ableton's Learning Synths website</a>.
+                </p>
+                <h3 class="subsection"><u>Math and Signals and Systems and Stuff</u></h3>
+                <p>
+                    Now that we know what signals are, we can start doing basic manipulation of the signals. Given that signals are represented by x(t) or x[n], depending on whether or not they're continuous or discrete, we can treat them just like any other function and manipulate the input, also known as transformation of the independent variable (which is, fascinatingly enough, the name of the chapter!).
+                    <br><br>
+                    Thanks to a couple Python libraries, this is quite easy to visualize, and all we need to do is change the input to the <code>y</code> function to demonstrate what we need.  So let's say we just have a simple sine wave. Let's visualize it as a function of x[n] with 100 discrete points, from 0 to 4π. Here's the Python code to map it in <code>matplotlib</code> if you want to do this yourself:
+                    <div class="multi">
+                        import matplotlib.pyplot as plt<br>
+                        import numpy as np<br>
+                        <br>
+                        x = np.linspace(0, 4 * np.pi, 100)<br>
+                        y = np.sin(x)<br>
+                        <br>
+                        plt.figure()<br>
+                        plt.stem(x,y)<br>
+                        <br>
+                        plt.show()
+                    </div>
+                    <br>
+                    Running that through the Python interpreter, it spits out this result: 
+                    <img src="/images/sin.png">
+                </p>
+                <p>
+                    So it's a sine wave, what a surprise! But now, we can transform this just as we can do to a typical function. First, let's add 1 to the input, which should shift the entire function 1 unit to the right. Here's that result:
+                    <img src="/images/sinx+1.png">
+                </p>
+                <p>
+                    Let's keep going and do a couple more transformations with multiplication! Here's one where we multiply the input by 2 below. A perfect example the textbook gives for how to think about this is to imagine an audio recording on a tape machine. Just for clarification, tape machines work with analog signals, not digital ones. Anyways, given that the sound is literally printed onto tape, some machines have the ability to play the tape at an unintended speed.  Let's say you do this while converting the analog signal into a digital visual representation, like on this graph. Slowing it down will make the signal stretch out, while speeding it up will make it squish. This is an example of the sound speeding up, in fact precisely by 2 times its original speed.
+                    <img src="/images/sin2x.png">
+                </p>
+                <p>
+                    As you could easily predict, here's a representation of slowing down the signal by 2 times:
+                    <img src="/images/sinxdiv2.png">
+                </p>
+                <p>
+                    This is a very basic, but still incredibly useful way of transforming signals. The textbook says it will come in handy later on to keep this information in mind, so I'm eager to see where it comes in!
+                </p>
+                <h3 class="subsection"><u>This Blog Is Way Too Long</u></h3>
+                <p>
+                    Wow, this is a monster of a blog. Perhaps I should be taking it a little easier. But fret not, this doesn't mean I'll be learning and presenting less. Just being a little smarter about it.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
