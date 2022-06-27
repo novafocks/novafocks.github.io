@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/gruv.css">
+    </head>
+
+    <body>
+        <div class="box">
+            <div class="container">
+                <h1 class="header">2022-06-26 - My First Plugin</h1>
+                <h3 class="subheader">Who knew software development would take dedication?</h3>
+                <hr class="divider">
+                <p class="important">
+                    <i>So my new laptop died halfway through writing this blog, and as it turns out, they gave me the wrong charger. That's fun. So that's why this is delayed a day late, though that being said, I'm updating my release schedule: the blogs will come out when they're ready. I know that's not as definitive as "daily", but I'll be doing my best to write them daily; that just won't be my main target, as I find I focus more on the blog than actual results in my work. Sorry.</i>
+                </p>
+                <p>
+                    I believe there's a decline in how well I'm writing these blogs. I went to my website today and re-read the blog I finished last night, and there were multiple careless grammar mistakes. The reason behind this is that I'm pushing these at 0200 and don't bother to proof-read, versus a week ago when I just started and I tried to ensure that at least most of it was in order. Oh well, all aboard the improvement train.
+                    <br><br>
+                    Otherwise, good news from today: I bought the portable laptop that I wanted! I ultimately decided against a Chromebook, and went with an open-box Lenovo Yoga 6 that I found at Best Buy for $500. For what it is, it's an incredibly good deal; it has a Ryzen 5, 8GB of RAM, a 256GB SSD, it's a 2-in-1, the battery life has been spectacular so far, and I'm quite happy with it! I can return it within 14 days if I don't like it as well, so just in case I change my mind again, I could see what else there is.
+                    <br><br>
+                    Now, because I want to maintain battery life, I've decided to stick with Windows 11 (for now). It's certainly quite sleek and nice to use so far, but hot damn did I have to remove a lot of bloat. Lenovo, why do you do this to me? The virtual desktops aren't really all that intuitive either, but it's not as big of an adjustment as I thought. I feel fairly comfortable getting work done on here, even if it can certainly get cluttered. Perhaps I'll replace it with some Linux distribution if I find it doesn't actually affect the battery life as much as I thought.
+                    <br><br>
+                    That being said, this allows me to use Visual Studio 2022 as an IDE for my JUCE projects, and setting it up was quite excruciating. I know that I could use Code::Blocks and all, but maybe it's just me being petty when I say that it's kind of ugly and that's a turn off. I might be too used to the sleek beauty of VSCode, and I did my best to ensure my website was visually appealing, so looks matter a fair amount to me.
+                </p>
+                <p class="important">
+                    So how did setting up my first JUCE plugin go?
+                </p>
+                <h3 class="subsection"><u>First JUCE Plugin</u></h3>
+                <p>
+                    So I installed it and created a new JUCE project (side note, JUCE thought that it should be located in the root folder of the drive by default, which... why?), and it just didn't work. It gave me an error message about how it was incompatible and how some application couldn't be found. As a result, I took the logical course of action and completely reinstalled the program. And that fixes it for some reason, so crisis averted.
+                    <br><br>
+                    So I just followed the tutorial on JUCE for coding your first plugin and made a MIDI volume slider. First I recreated the GUI elements to a T from the tutorial, because what else are you going to do when you first start? And even building it before putting in the actual functionality was a bit confusing at first. It took a simple Google search. But once it was up and running, it just worked. 
+                </p>
+                <img src="/images/firstplugin1.png">
+                <p>
+                    Well, that's it! My first plugin. Does it do anything? Barely. Is it pulled directly from a tutorial? Of course. But it's a start for certain.
+                    <br><br>
+                    So beyond the "creating a basic audio plugin series", what else resources are there?
+                    <br><br>
+                    For <b class="important">other tutorials on the website</b> there's quite a few categories, including that for creating plugins, synths, DSP (ooh, look, an easier resource for DSP besides an undergraduate textbook!), interface design, and working with MIDI and audio. I could certainly look through these if I need to know any specifics.  JUCE also provides a few third-party resources in various locations.
+                    <br><br>
+                    Not to mention, there are plenty of example projects I could use as an introduction. I think the next plugin I'd want to make would be a gain control, just so I could get familiar with procesing real-time audio. Indeed, there is a gain example plugin, and I think analyzing it in a blog post and recreating it from scratch would be a good way to begin. That, or using a tutorial about how to process audio and figuring it out for myself. Which ever way I decide I'd like to.
+                    <br><br>
+                    As for <b class="important">documentation</b>, there's an overview of every class built into the framework alongside their respective methods right <a href="https://docs.juce.com/master/index.html">here</a>. This will be useful for later, after I'm confident enough to build the foundations of a project myself and need to browse additional features, able to understand what each of them could contribute.
+                    <br><br>
+                    There's also something else I'd like to share that I'm doing in my free time: I'm learning JavaScript.
+                </p>
+                <h3 class="subsection"><u>You're learning JavaScript?</u></h3>
+                <p>
+                    Yes, I'm learning JavaScript. The thing about writing this website is, although I really enjoy what I've done with it so far, I only know basic HTML and CSS knowledge and applied that to create a fairly rudimentary blog. In fact, I have to convert everything from the Markdown format by hand! 
+                    <br><br>
+                    But in the process of writing this blog, I realized that... I quite enjoy web development. Perhaps my strange fascination with ChromeOS aided it, but whatever the case, I think that it would be at least cool to learn it.
+                    <br><br>
+                    And if you're worried about this being me overextending again, then keep in mind this is simply a side project and I'll just bring this up whenever I make actual major progress on it. After JavaScript, I'd also be looking into frameworks that I think would be useful for both web development and potentially any applications I'd want to make. Whatever the case, I've gotten far enough to know that I'm interested. 
+                    <br><br>
+                    So this is it for today. Unfortunately, I have work tomorrow, which means there's a 50/50 chance that I'll be able to type some of the blog from time to time during their hours. See y'all later!
+                </p>
+                <a href="/blog/index.html">Back to Catalogue</a>
+            </div>
+        </div>
+    </body>
+</html>
