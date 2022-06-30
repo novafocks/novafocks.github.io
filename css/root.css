@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,900');
+@import url('https://fonts.googleapis.com/css?family=Fira+Code');
+
 :root {
     /* Current iteration of website uses gruvbox theme: https://github.com/morhetz/gruvbox. */
     /* Highlight colors */
@@ -34,18 +37,11 @@
 }
 
 @font-face {
-    src: url('/fonts/FiraSans-Regular.ttf');
-    font-family: Fira Sans;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 @font-face {
-    src: url('/fonts/FiraSans-Black.ttf');
-    font-family: Fira Sans Black;
-}
-
-@font-face {
-    src: url('/fonts/FiraCode-VariableFont_wght.ttf');
-    font-family: Fira Code;
+    font-family: Fira Code, monospace;
 }
 
 .box {
@@ -74,7 +70,9 @@
 */
 
 .header {
-    font-family: Fira Sans Black;
+    font-family: Fira Sans;
+    font-weight: 900;
+
     font-size: 2em;
     margin-top: 0px; 
     margin-bottom: 0px;
