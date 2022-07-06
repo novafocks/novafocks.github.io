@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/gruv.css">
+</head>
+<body>
+    <div class="box">
+        <div class="container">
+            <h1 class="header">2022-07-05 - A Peculiar Man Called Fourier</h1>
+            <h3 class="subheader">So much work, so little gain</h3>
+            <hr class="divider">
+            <p style="color: var(--orange1);"><b>
+                I've been sick for the past week with COVID and it's been difficult to get any work done during this time. During this time, I've tried to create this blog post, which has gone through many individual edits as I've futily tried to come up with something tangible and interesting. But fortunately, along the way, I gained a lot more than I expected, such as how I should be learning, some more fundamental signal processing math, and a little bit more patience with myself. Please enjoy.
+            </b></p>
+            <p>
+                The Dunning-Kruger effect. It's invisible, strong, and I feel like it's affecting the way I approach the content on my blog. After all, you've seen how I can just skip from content to content, growing slightly more confident that I'm learning a lot more than I actually am. In reality, I've only scratched the surface for what I want.
+                <br><br>
+                It reminds me of an internship I took at Lockheed Martin. A bunch of mentors put us in a team and told us to come up with something. In turn, our instinct was to learn minimal information, fancify it with a website, and present it as if we became experts on the subject. We had an entire school semester to do it, too. The unfortunate part is, if I attribute it to bad direction, I'll be essentially blaming entirely myself for what I'm doing right now.
+                <br><br>
+                I attempted to recreate a simple equalizer plugin using <a href="https://www.youtube.com/watch?v=i_Iq4_Kd7Rc">this tutorial</a>, but after making a fair amount of progress, then restarting, then having issues with JUCE's underlying source code for some reason, I gave up. It's not even as if I can't do it, but it's as if I expect to learn about the world of systems that interlock at JUCE's core, so I can master it and make the best sounding and most efficient code. The good part is, it teaches a lot about underlying structure, and perhaps if I watched it and learned just for that (if I can maintain attention for five hours), I would have a good time.
+                <br><br>
+                I'm not naive, I see what's happening in this situation: <b class="important">I get caught in a cycle of thinking I learned something, growing confidence, then realizing I've fallen short, and losing that confidence</b>. When you're not under the guidance of a teacher or someone more experienced, it's hard to maintain that structure, which I'm trying to grow as I work through creating these blogs. And eventually, it reaches the point where I feel as if I'm trying so hard to be my own mentor, that I might as well just stop talking about it because it's getting in the way. So let's do that for now and move on towards the interesting stuff. 
+                <br><br>
+                I learned of another resource that I can use for learning not only JUCE but the underlying math behind signal processing: <b class="important">Surge XT</b>! Perhaps I can become a contributor in the future, but for now I'm going to just fork it and see what's going on under the hood. There's plenty of DSP goodness to be had here, especially with the newer oscillator types and the Airwindows effects. 
+                <br><br>
+                Oh yes, and <b class="important">Airwindows' plugins</b>. I don't think one could make simpler yet greater plugins. That makes them fantastic for analysis if I do want to open them up at some point. 
+                <br><br>
+                Might as well create a private fork of these just to have them on my computer, readily available to build and tinker with them. In the meantime, however, I wanted to talk about Fourier transforms, as it's an important concept in processing signals.
+            </p>
+            <h3 class="subsection"><u>A Peculiar Man Called Fourier</u></h3>
+            <p>
+                The Fourier transform was a formula invented by Jean-Baptiste Joseph Fourier, not to be confused with very different François Marie Charles Fourier, who wanted to take a function of time (meaning a function which changes over the independent variable of time) and <b class="important">transform</b> it into a function of frequency (making the independent variable frequency). Now, what exactly does that mean?
+                <br><br>
+                Take a sine wave, with a simple equation of <code>f(x) = sin(2x)</code>. We would see that on a graph or plot as a simple sine wave. And furthermore, it's incredibly easy to guess the frequency of it, even without the function, because you can just use its period. 
+                <br><br>
+                But what if you added additional, higher frequency sine waves, and layered it on top of the original like a math cake? Eventually, with enough of them (especially if the higher frequencies aren't multiples of the original), it'll look like a massive mess! What if you wanted to find the frequencies of not only the lowest wave, but all the higher ones? Are you fresh out of luck?
+                <br><br>
+                Introduce Jean-Baptiste Joseph Fourier. He came up with the concept that any periodic function can be interpreted as a bunch of sine waves added on top of each other, which was super cool. However, he also came up with this incredible function to transform those periodic functions and represent them in terms of the frequencies that composed them!
+                <br><br>
+                So what is this formula? Well, that's the fun part! Unfortunately I can only use images, since I'm not sure how to insert a formula into HTML in a clean manner, but here it is, with the source being <a href="https://mathworld.wolfram.com/FourierTransform.html">Wolfram MathWorld</a>. If you want this explained in a more clean way, then I recommend that page as a resource.
+            </p>
+            <img src="/images/fourier.png">
+            <p>
+                So, okay what exactly is this? Well it's an indefinite integral of the function f(x), and the bounds are simply what function of time you want to transform (the infinite are just meant to provide as proof that it applies for all values of time). But what's Euler's constant doing there?
+                <br><br>
+                Well, we're doing something very funny here: we're multiplying the function by Euler's number, which is to the power of -2pi, which is itself being multiplied by the value of k and x, but also by the square root of -1? If this doesn't make intuitive sense at all, mostly because of the introduction of the complex plane, then that's understandable. However, I found that <a href="https://www.youtube.com/watch?v=spUNpyF58BY">this video</a> really helped explain why exactly this makes sense. In fact, if you want a Desmos example, <a href="https://www.desmos.com/calculator/qpnz9celzf">here it is</a>! It even links to the very same video and a demonstration of the concepts explained in the video! In short, it actually comes down to some cool trigonometry trickery, which is why I fell in love with this when I first saw this.
+                <br><br>
+                There are <b class="important">so many applications of this in audio processing</b>. We can use this to create <b class="important">spectrum analyzer</b>, <b class="important">filters</b>, <b class="important">equalizers</b>, and so many more, often through the use of FFT algorithms, or Fast Fourier Transforms. That's awesome.
+                <br><br>
+                So what else is there to cover for tonight?
+            </p>
+            <h3 class="subsection"><u>What Else?</u></h3>
+            <p>
+                So in what I feel to be likely not the last exchange I make, I have turned in the Lenovo Yoga 6 in favor of an <b class="important">M1 MacBook Air</b>. Yes, I know, it's expensive, but oh my goodness am I loving it so far. The battery life, the performance, and the general user experience is significantly more pleasant than I feel I could get on any Windows laptop.
+                <br><br>
+                Today was my first day back to work as well after COVID, and while I'm looking forward to trying to get back into the swing of things, I'm mostly just becoming more and more tired by the day. Hopefully I can gain some of my energy and motivation back moving forward.
+                <br><br>
+                I hope that for the next blog I can share something more substantive than this new algorithm. And oh goodness this took too much time for me to justify, and I'd rather not take this long again. But it's getting late for right now, so I'm going to finish up and log off. Have a good night, y'all!
+            </p>
+            <a href="/blog/index.html">Back to Catalogue</a>
+        </div>
+    </div>
+</body>
+</html>
