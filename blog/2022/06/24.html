@@ -1,64 +1,68 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="/css/gruv.css">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting Up JUCE - novafocks' Blog</title>
 
-    <body>
-        <div class="box">
-            <div class="container">
-                <h1 class="header">2022-06-24 - Setting Up JUCE</h1>
-                <h3 class="subheader">You will learn about the power of JUCE</h3>
-                <hr class="divider">
-                <p>
-                    There's an elephant in the room, and it's extremely political, but I've kept it to its category so you can skip right over it if you'd like.
-                </p>
-                <h3 class="subsection"><u>Roe v. Wade</u></h3>
-                <p>
-                    Roe v. Wade has been overturned by the Supreme Court, and I am extremely disappointed. This decision will undoubtedly have massive legal consequences going forward in this country, and I'm not qualified to talk about that. And well, I don't have the ability to give birth so perhaps this isn't my subject to talk about anyways, but I am pissed that women's rights are being stripped away. This will ruin the lives of thousands of women around the country, and in some cases quite literally, given the proposal to consider abortion murder in some states. To anyone who can: get angry; this should not stand in the supposed land of the free.
-                    <br><br>
-                    If my thoughts on the overturn of Roe v. Wade offend you or make you uncomfortable, I won't apologize, but you are more than free to simply go down and read some math and programming stuff I'm doing, since I'm certain that's more comfortable for you than considering rights for American citizens.
-                </p>
-                <h3 class="subsection"><u>Changing Course</u></h3>
-                <p>
-                    In some form, I feel like using textbooks instead of a more "friendly" resource may be to my detriment; they are, after all, intended for undergrad students. With that in mind, my frustration with them so far is understandable, because although I'm certain I could take the time to understand every single line of it, I tend to be impatient. These would take entire semesters to go through, and the C textbook in particular assumes little to no C knowledge while giving a lot of information sprinkled in-between stuff I already know. And the Signals and Systems textbook, while I can understand the math portions, it feels a bit overwhelming for certain. Basing writing my blog off these textbooks and my progress into them has been kind of successful but also quite frustrating and is making me prone to putting them off.
-                    <br><br>
-                    Hm. After a little thinking, all this jumping around I do, I'm not all that happy with it. I'm certain we've all been there before: we try to learn something by picking it up, but when we get frustrated, it's easy to try and change course. I know I'm passionate about this and all, but I'm a high school student trying to study this in my free time, not pursuing a degree in it.
-                    <br><br>
-                    I know that it's not wise to expect immediate results, and that I should be enjoying the process, but structure has never been one of my strong suits. I have ADHD to thank for that partially, but I'd rather not use it as an excuse when I know that I can do better than this. So let's see: <b class="important">where did I go wrong?</b>
-                    <br><br>
-                    For one, I used a general purpose textbook in signal processing with a lot of math, intended for undergraduates. The other textbook I used is teaching a programming language that I haven't written much. I'm trying to incorporate it into a framework that doesn't even use that language. There's no use of Python or Java in these textbooks or in any of these frameworks, which are languages I'm most proficient in. I think the issue is clear: I'm overextending way too early.
-                    <br><br>
-                    Does that make the previous work I've done on these blogs useless? I don't think so. Although I'm always embarrassed to backtrack and say "I don't think I should've started this way" and try to take a different route, because I feel that reflects poorly on my ability to pursue self-motivated learning, something that assures me is that I'm still learning how to learn. Teaching myself new subjects is a skill that can be improved upon, and I've spent my life so far relying on the structure of school to keep me ahead, trusting that they knew what they were doing. At this point, I do not know what I am doing yet, and that is okay as long as I don't stay here.
-                    <br><br>
-                    <b class="important">So what should I change?</b> Firstly, let's back off a bit and put off the textbooks for later. Secondly, I want to narrow down my scope. Keep in mind that my original plan was to learn general signal processing before diving into audio; with hindsight, that wasn't a good idea because when I wanted to specify in audio, it just gave me extra obligation I didn't want or need. Plus, what if I didn't want to do something signal processing related one day? Having a textbook with math I feel obligated to cover would distract and drain.
-                    <br><br>
-                    <b class="important">So what is my scope exactly?</b> I shall specify in creating audio plugins, and I would like to learn the JUCE framework in order to do that. There, easy. Only took me a week. 
-                    <br><br>
-                    <b class="important">How can I learn it?</b> Well, there's plenty of options. There's plenty of example projects, tutorials both official and unofficial, C++ books I can read into so I can learn the language well enough, etc. But I think the key is to use each of these resources carefully and when we need them.
-                </p>
-                <h3 class="subsection"><u>Setting Up JUCE</u></h3>
-                <p>
-                    There are plenty of resources for this that I'll be studying in my free time, but for now let's get it set up. Luckily, the setup process on Linux is unusually easy. All you need to do is download the Projucer application from their website, which comes standalone alongside the JUCE assets, and boom! We're pretty much set up!
-                    <br><br>
-                    Except for one unfortunate detail: I'd like to use Visual Studio Code as my IDE, and it for some reason doesn't recognize that. It allows XCode and Visual Studio, but not VSCode. Fortunately, there is an option for a Linux makefile, which is unfortunately unfamiliar to me but I'm willing to learn, especially given that they are used fairly often.
-                    <br><br>
-                    This is trivial to get around, though; all you need to do is find the project location and open that in Code. But I'm not exactly sure how to find the example projects. JUCE has an examples folder, but it only contains the header files when the project itself shows me that I have more than that (found out later that's for the DemoRunner executable). So perhaps it's time to check the website for where to have an easy starting point.
-                    <br><br>
-                    Alright, so I've gone through how to set up a project and what templates you'd want to use for which use cases. It has a specific tutorial for how to begin with VST3 and AU plugins, so we're gonna be starting with that tomorrow. I know I didn't really go through much today, and I apologize for that, but I will for certain pick up tomorrow. I do have a few smaller updates that I wanted to share with you!
-                </p>
-                <h3 class="subsection"><u>A Few Smaller Updates</u></h3>
-                <p>
-                    So remember how <a href="/blog/2022/06/22">last blog</a> I said I was looking at laptops and was interested in the Samsung Galaxy Chromebook 2? After re-evaluating and talking to my brother, who would certainly be more knowledgeable than I in selecting a computer good for me, I decided that a cheaper but still fairly powerful Chromebook would still be beneficial given battery life and out of the box Linux. As he noted, development work isn't all that intensive, and well he works with low-level code for a living so I trust his word on that. I think that's what I'll be going with, most likely. He did also recommend me an older Thinkpad, which I'll certainly consider, but the benefits of using a Chromebook are quite evident to me.
-                    <br><br>
-                    You may notice something different about the styling of the page. It finally has a maximum width! No more "if your screen is wide then it'll extend all the way!" I mean, it was an easy thing to do, it was quite literally one line of CSS, but for some reason it only dawned upon me now that I should do that. Quite stupid of me I think.
-                    <br><br>
-                    In between making sure I'm putting out content about JUCE, and this certainly won't apply for every blog, but I'd love to explore other technical concepts I have passion about. This is vague but intentionally so, because it could be anything I feel like doing; machine learning, data science, web applications, stuff like that.
-                    <br><br>
-                    That's all for today. Hope y'all have a great night!
-                </p>
-                <a href="/blog/index.html">Back to Catalogue</a>
-            </div>
+    <link rel="stylesheet" href="/css/gruv.css">
+</head>
+<body>
+    <div class="box">
+        <div class="container">
+            <h1 class="header">2022-06-24 - Setting Up JUCE</h1>
+            <h3 class="subheader">You will learn about the power of JUCE</h3>
+            <hr class="divider">
+            <p>
+                There's an elephant in the room, and it's extremely political, but I've kept it to its category so you can skip right over it if you'd like.
+            </p>
+            <h3 class="subsection"><u>Roe v. Wade</u></h3>
+            <p>
+                Roe v. Wade has been overturned by the Supreme Court, and I am extremely disappointed. This decision will undoubtedly have massive legal consequences going forward in this country, and I'm not qualified to talk about that. And well, I don't have the ability to give birth so perhaps this isn't my subject to talk about anyways, but I am pissed that women's rights are being stripped away. This will ruin the lives of thousands of women around the country, and in some cases quite literally, given the proposal to consider abortion murder in some states. To anyone who can: get angry; this should not stand in the supposed land of the free.
+                <br><br>
+                If my thoughts on the overturn of Roe v. Wade offend you or make you uncomfortable, I won't apologize, but you are more than free to simply go down and read some math and programming stuff I'm doing, since I'm certain that's more comfortable for you than considering rights for American citizens.
+            </p>
+            <h3 class="subsection"><u>Changing Course</u></h3>
+            <p>
+                In some form, I feel like using textbooks instead of a more "friendly" resource may be to my detriment; they are, after all, intended for undergrad students. With that in mind, my frustration with them so far is understandable, because although I'm certain I could take the time to understand every single line of it, I tend to be impatient. These would take entire semesters to go through, and the C textbook in particular assumes little to no C knowledge while giving a lot of information sprinkled in-between stuff I already know. And the Signals and Systems textbook, while I can understand the math portions, it feels a bit overwhelming for certain. Basing writing my blog off these textbooks and my progress into them has been kind of successful but also quite frustrating and is making me prone to putting them off.
+                <br><br>
+                Hm. After a little thinking, all this jumping around I do, I'm not all that happy with it. I'm certain we've all been there before: we try to learn something by picking it up, but when we get frustrated, it's easy to try and change course. I know I'm passionate about this and all, but I'm a high school student trying to study this in my free time, not pursuing a degree in it.
+                <br><br>
+                I know that it's not wise to expect immediate results, and that I should be enjoying the process, but structure has never been one of my strong suits. I have ADHD to thank for that partially, but I'd rather not use it as an excuse when I know that I can do better than this. So let's see: <b class="important">where did I go wrong?</b>
+                <br><br>
+                For one, I used a general purpose textbook in signal processing with a lot of math, intended for undergraduates. The other textbook I used is teaching a programming language that I haven't written much. I'm trying to incorporate it into a framework that doesn't even use that language. There's no use of Python or Java in these textbooks or in any of these frameworks, which are languages I'm most proficient in. I think the issue is clear: I'm overextending way too early.
+                <br><br>
+                Does that make the previous work I've done on these blogs useless? I don't think so. Although I'm always embarrassed to backtrack and say "I don't think I should've started this way" and try to take a different route, because I feel that reflects poorly on my ability to pursue self-motivated learning, something that assures me is that I'm still learning how to learn. Teaching myself new subjects is a skill that can be improved upon, and I've spent my life so far relying on the structure of school to keep me ahead, trusting that they knew what they were doing. At this point, I do not know what I am doing yet, and that is okay as long as I don't stay here.
+                <br><br>
+                <b class="important">So what should I change?</b> Firstly, let's back off a bit and put off the textbooks for later. Secondly, I want to narrow down my scope. Keep in mind that my original plan was to learn general signal processing before diving into audio; with hindsight, that wasn't a good idea because when I wanted to specify in audio, it just gave me extra obligation I didn't want or need. Plus, what if I didn't want to do something signal processing related one day? Having a textbook with math I feel obligated to cover would distract and drain.
+                <br><br>
+                <b class="important">So what is my scope exactly?</b> I shall specify in creating audio plugins, and I would like to learn the JUCE framework in order to do that. There, easy. Only took me a week. 
+                <br><br>
+                <b class="important">How can I learn it?</b> Well, there's plenty of options. There's plenty of example projects, tutorials both official and unofficial, C++ books I can read into so I can learn the language well enough, etc. But I think the key is to use each of these resources carefully and when we need them.
+            </p>
+            <h3 class="subsection"><u>Setting Up JUCE</u></h3>
+            <p>
+                There are plenty of resources for this that I'll be studying in my free time, but for now let's get it set up. Luckily, the setup process on Linux is unusually easy. All you need to do is download the Projucer application from their website, which comes standalone alongside the JUCE assets, and boom! We're pretty much set up!
+                <br><br>
+                Except for one unfortunate detail: I'd like to use Visual Studio Code as my IDE, and it for some reason doesn't recognize that. It allows XCode and Visual Studio, but not VSCode. Fortunately, there is an option for a Linux makefile, which is unfortunately unfamiliar to me but I'm willing to learn, especially given that they are used fairly often.
+                <br><br>
+                This is trivial to get around, though; all you need to do is find the project location and open that in Code. But I'm not exactly sure how to find the example projects. JUCE has an examples folder, but it only contains the header files when the project itself shows me that I have more than that (found out later that's for the DemoRunner executable). So perhaps it's time to check the website for where to have an easy starting point.
+                <br><br>
+                Alright, so I've gone through how to set up a project and what templates you'd want to use for which use cases. It has a specific tutorial for how to begin with VST3 and AU plugins, so we're gonna be starting with that tomorrow. I know I didn't really go through much today, and I apologize for that, but I will for certain pick up tomorrow. I do have a few smaller updates that I wanted to share with you!
+            </p>
+            <h3 class="subsection"><u>A Few Smaller Updates</u></h3>
+            <p>
+                So remember how <a href="/blog/2022/06/22">last blog</a> I said I was looking at laptops and was interested in the Samsung Galaxy Chromebook 2? After re-evaluating and talking to my brother, who would certainly be more knowledgeable than I in selecting a computer good for me, I decided that a cheaper but still fairly powerful Chromebook would still be beneficial given battery life and out of the box Linux. As he noted, development work isn't all that intensive, and well he works with low-level code for a living so I trust his word on that. I think that's what I'll be going with, most likely. He did also recommend me an older Thinkpad, which I'll certainly consider, but the benefits of using a Chromebook are quite evident to me.
+                <br><br>
+                You may notice something different about the styling of the page. It finally has a maximum width! No more "if your screen is wide then it'll extend all the way!" I mean, it was an easy thing to do, it was quite literally one line of CSS, but for some reason it only dawned upon me now that I should do that. Quite stupid of me I think.
+                <br><br>
+                In between making sure I'm putting out content about JUCE, and this certainly won't apply for every blog, but I'd love to explore other technical concepts I have passion about. This is vague but intentionally so, because it could be anything I feel like doing; machine learning, data science, web applications, stuff like that.
+                <br><br>
+                That's all for today. Hope y'all have a great night!
+            </p>
+            <a href="/blog/index.html">Back to Catalogue</a>
         </div>
-    </body>
+    </div>
+</body>
 </html>
