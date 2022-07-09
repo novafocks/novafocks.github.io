@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React and the MERN Stack - novafocks' Blog</title>
+
+    <link rel="stylesheet" href="/css/gruv.css">
+</head>
+<body>
+    <div class="box">
+        <div class="container">
+            <h1 class="header">2022-07-08 - React and the MERN Stack</h1>
+            <h3 class="subheader">I do love me a cup of Mocha</h3>
+            <hr class="divider">
+            <p>
+                So I decided to take a small break in making the main topic about signal processing, because I wanted to turn my attention to furthering my skills in web development and JavaScript. Man, these topics feel like such opposites! I mean on one hand we have the field of signal processing, with a bunch of math and me working in C++, and then we have web development, which is all just design and using the oh so inefficient language of JavaScript. The former wants speed and efficiency above all else, while the latter wants to have it so bad yet it can't because it's the web and it will just never be as fast.
+                <br><br>
+                Inane ramblings about web development aside, I'm going to start by learning a UI library or framework, then transitioning to learning a full tech stack. After looking into it, I found it was too daunting to just jump into learning the full stack, so this blog will only introduce the <b>concepts</b> for that field of development, while actually creating an application with the UI technology.
+                <br><br>
+                There's a few main options for approaching the UI side: using the <b class="important">React</b> library, the <b class="important">Angular</b> framework, or <b class="important">Vue</b>. Obviously there's many, <b>many</b>, more but I'd prefer to go with a popular, mainstream option because they're tested in the field extensively and have plenty of documentation.  
+                <br><br>
+                <b class="important">Angular</b> is built and maintained by Google, and I've heard that it can be opinionated and complicated, but still incredibly useful, particularly for complex applications. I don't really need to create anything complex for right now, it might be good to learn eventually, but I'll pass for right now.
+                <br><br>
+                <b class="important">Vue</b> is newer and built by an ex-Angular employee, and I've heard that it's particularly pleasant to work with. This does sound like a good choice, but let's briefly cover the option which I'll actually be going with.
+                <br><br>
+                I want to learn <b class="important">React</b> initially. This is because it is largely unopinionated, extremely flexible, extensible, and generally the most used choice in the industry (at least I've heard). So why not go with something so clearly reliable?
+                <br><br>
+                So how does full stack development work, and what tools would I use? Well, React works on the <b class="important">front-end</b> of web development, which involves what the user will be seeing. There's also the <b class="important">back-end</b> of web development which organizations need to worry about, managing databases and information behind the scenes. <b class="important">Full-stack</b> development involves working on both of these at the same time to create a coherent and beautiful web application, often with many complex moving parts.
+                <br><br>
+                As for the tools, I think it would be good to start with the tried-and-true <b class="important">Node.js</b>, <b class="important">Express.js</b>, and <b class="important">MongoDB</b> combination. MongoDB is going to be our database tool, which uses its own JSON-like formats, different from relational databases. Node.js will work on the application side and interact with our databases. Express.js will provide the web application features on top of Node.
+                <br><br>
+                This tech stack is called the <b class="important">MERN stack</b>, which is an acronym that includes each of the individual components. There's also the popular <b class="important">MEAN stack</b>, which uses Angular instead of React, but this is just my personal preference for right now.
+            </p>
+            <h3 class="subsection"><u>Creating a Basic React Application</u></h3>
+            <p>
+                So let's create a basic application using React! Luckily, there's this awesome tool called <a href="https://create-react-app.dev/">Create React App</a> which we can use to run a command and automatically create a template, so we'll be installing that once we have Node up and running. 
+                <br><br>
+                I installed <a href="https://github.com/nvm-sh/nvm">nvm</a> as a version manager for Node.js rather than install the library directly, since I find that approach to be cleaner, and installed the latest LTS version: <b class="important">v16.16.0</b>. Luckily, you can just run the command <code>nvm install --lts</code> to get the latest LTS version! That's quite convenient!
+                <br><br>
+                So after running the command to create a React app (<code>npx create-react-app [name goes here]</code>), I found that it even initializes a Git repository, complete with a <code>.gitignore</code> file up and ready to go, which is awesome.
+                <br><br>
+                I just want to take a second to appreciate the Material Icons extension for Visual Studio Code. They just add so much despite changing so little. Look at how much visual feedback those little images give!
+            </p>
+            <img src="/images/material.png">
+            <p>
+                Sorry, I've just always been a sucker for details like that. Anyways, as you can see, there's a fairly basic folder structure generated with the React app. The <code>node_modules</code> folder stores the... well the Node modules, the <code>public</code> folder seemingly holds some metadata, and the <code>src</code> folder holds the application and the underlying JavaScript that composes the app. The <code>src</code> folder is where we're going to be coding, deducing from the documentation. 
+                <br><br>
+                Examining the <code>App.js</code> file, which is the one the live server tells you to edit, I notice a few interesting things. It imports a logo and some CSS, but from there it's just a function that returns some HTML code which is displayed on the webpage. I think I've heard of this before, that this is called <b class="important">JSX</b>, which is just an extension to JavaScript which allows the embedding of HTML straight into the code, allowing you to input any information you want (correct me if I'm wrong, of course).
+                <br><br>
+                The <code>index.js</code> file simply calls the App function from <code>App.js</code> and renders it through the virtual DOM. Of course, there's a few other JavaScript files that perform other functions, like reporting the vitals and what I assume to be utilities for debugging, but that's it. 
+                <br><br>
+                Looking in the <code>package.json</code> in the root folder, the <code>start</code> utility that npm uses calls a utility called <code>react-scripts</code>, and the documentation tells me that this is the main way the app reacts with the rest of the software. So if you need to update your app, it says that you mainly need to worry about that package. Neat!
+                <br><br>
+                So how would you implement this in a real world application? Well, the cool thing is that, as the website continually mentions, React can be used as little or as much as you need within a project; it can be used to create a couple elements of the UI, or you can use it as the basis for your entire project. 
+                <br><br>
+                Reading the documentation, the way in which you would implement this is as simple as the explanation: you can create components or elements of your website using React, piece by piece, and implement them into your project however you like. For example, if you wanted to add a button created using React, you could create a <code>Button.js</code> file in a folder about UI components, and implement that into an existing website using <code>script</code> (couldn't put in HTML valid code because that kinda creates a mess). Of course, when using the Create React App command, React forms the basis for the app you chose and runs standalone, but either method works!
+                <br><br>
+                Perhaps I could use this in my own website to create a top bar rather than the flimsy navigation methods I'm currently using. I need to create a link to the original blog page every single time I create a new post, and it's probably not only irritating for you, but for me to need to remember each time.
+                <br><br>
+                Either way, I feel like I've learned a lot about how React works, and how individual components interact with each other to create the overall web application. I'm certain there's plenty more where that came from (Dunning-Kruger effect again), but that's something we can pick up the next time I talk about this on a blog. Though before I end it, I wanted to note something in my personal life that might affect how I work on this blog. 
+            </p>
+            <h3 class="subsection"><u>Summer Physics</u></h3>
+            <p>
+                So I decided to take AP Physics C without taking a physics class at my school, and I wanted to make up for the lack of knowledge by taking it over the summer, which I have signed up for! Unfortunately, I haven't made much progress, and I decided now is a better time than ever to get started. 
+                <br><br>
+                However, given that I only have about a month left, I've decided to create a schedule for completing each unit. There are 7 individual units, plus a final exam which counts for the majority of my grade, meaning 8 individual deadlines before school starts. After some quick math, I deduced that I have 32 days remaining before my first day. This means that I have to complete one unit every four days, at least on average. Doable, but quite far from ideal.
+                <br><br>
+                So what this means for my blog is that I might need to put it off some in favor of completing this. My target release might be every two or three days rather than daily, which I think is a more sustainable target regardless (completing a blog daily was quite draining; even if it's possible and somewhat sustainable, it would just take up too much of my life). 
+                <br><br>
+                Hopefully I wouldn't need to be learning the concepts in this online class <b>during</b> school, but I might need to if I don't reach my deadline. This is just for the ideal scenario, and I think I can do it. 
+                <br><br>
+                That aside, thank you for reading my blog today, it's always greatly appreciated! Next time I hope to be up to some more signal processing shenanigans, sprinkled with a little bit more React. If you don't see a post from me for longer than normal, it's likely that I need to do the physics work (or because I'm procrastinating, one of the two). Have a good night, y'all!
+            </p>
+            <a href="/blog/index.html">Back to Catalogue</a>
+        </div>
+    </div>
+</body>
+</html>
