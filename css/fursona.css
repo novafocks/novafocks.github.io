@@ -1,36 +1,36 @@
 @import "root.css";
 
 :root {
-    --fursona-black0:       #0b0115;
-    --fursona-black1:       #0c0112;
-    --fursona-purple0:      #43089b;
-    --fursona-purple1:      #7400ae;
-    --fursona-purple2:      #390059;
-    --fursona-white:        #ffffff;
+    --sona-black0:       #0b0115;
+    --sona-black1:       #0c0112;
+    --sona-purple0:      #43089b;
+    --sona-purple1:      #7400ae;
+    --sona-purple2:      #390059;
+    --sona-white:        #ffffff;
 
-    --fursona-ui-purple:    #1c0038;
+    --sona-ui-purple:    #1c0038;
 }
 
 .box {
-    border: solid 2px var(--fursona-ui-purple);
-    background-color: var(--fursona-ui-purple);
+    border: solid 2px var(--sona-ui-purple);
+    background-color: var(--sona-ui-purple);
 }
 
 .divider {
-    border: 2px solid var(--fursona-white);
+    border: 2px solid var(--sona-white);
 }
 
 .header {
-    color: var(--fursona-white);
+    color: var(--sona-white);
     font-size: 1.5em;
 }
 
 a {
-    color: var(--fursona-purple1);
+    color: var(--sona-purple1);
 }
 
 body {
-    background-color: var(--fursona-black0);
+    background-color: var(--sona-black0);
 }
 
 img {
