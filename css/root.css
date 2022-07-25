@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,900');
 @import url('https://fonts.googleapis.com/css?family=Fira+Code');
 
-@font-face {
-    font-family: 'Fira Sans', sans-serif;
-}
-
-@font-face {
-    font-family: Fira Code, monospace;
-}
-
 .box {
     max-width: 60vw;
     width: 90%;
@@ -47,6 +39,7 @@
     width: 95%;
     margin: auto;
     padding: 1rem;
+    overflow-wrap: break-word;
 }
 
 .subheader {

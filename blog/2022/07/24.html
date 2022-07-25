@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Beauty of Faust and IRs</title>
+
+    <link rel="stylesheet" href="/css/gruv.css">
+</head>
+<body>
+    <div class="box">
+        <div class="container">
+            <h1 class="header">2022-07-24 - The Beauty of Faust and IRs</h1>
+            <a href="https://www.youtube.com/watch?v=Wg696ukZ850]" style="color: var(--orange1)"><h3 class="subheader">Template. Hello? Response. Hello.</h3></a>
+            <hr class="divider">
+            <p>
+                Hey y'all, it was my <b class="important">birthday</b> two days ago, so I am officially 17 and one year closer to feeling the crushing weight of being an adult! So that means it's time to write a post, because I want to.
+                <br><br>
+                You might recall from the last blog that I introduced <b class="important">Reaktor</b> and <b class="important">Faust</b> as potential tools for studying DSP. After all, they do both allow you to create them from scratch. However, I tried to emphasize that <b class="important">Reaktor</b> was the better tool, and upon further inspection that may not necessarily be the case for me.
+                <br><br>
+                There's a fair few advantages that <b c;ass="important">Faust</b> provides over <b class="important">Reaktor</b>:
+            </p>
+            <ul>
+                <li>It allows direct export to not only other languages, including C++ which we can implement in JUCE, but you can directly create a VST plugin.</li>
+                <li>
+                    While <b class="important">Reaktor</b> is a visual programming language and aligns more with something like <b class="important">Max</b> or <b class="important">PureData</b>, <b class="important">Faust</b> is a typed programming language, which I am much more familiar with.
+                </li>
+                <li>
+                    I don't doubt that <b class="important">Reaktor</b> is an extremely powerful tool and a playground for DSP, but given its emphasis on pre-built components versus exploration and education, I think that a programming language built around this would just be better, at least initially.
+                </li>
+            </ul>
+            <p>
+                So I'll likely be preferring that for the future instead. Otherwise, I have some new signal processing concepts I want to introduce, and I want to use <b class="important">Faust</b> to explain the basics of how processing audio works. 
+            </p>
+            <h3 class="subsection"><u>Impulse Responses</u></h3>
+            <p>
+                Following the previous example of <b class="important">convolution reverb</b>, you likely know <b class="important">impulse responses</b> as the sound file which emulates the room you'll be putting into the software, then translated into reverb. But what if we were to think about this using systems?
+                <br><br>
+                Let's pretend that a room, a physical space, is like a system. You input audio, like an instrument or your voice, and it bounces back into your ears, mixed with all the noise of the waves bouncing all around. While your brain may be able to tell the difference between the source signal and the room noise, <b class="important">a computer can't</b>; it's all just bouncing air particles to an ADC. 
+                <br><br>
+                What would be an easy way to isolate room noise so we could <b class="important">convolve</b> it with a signal? To answer this, smarter people than I decided: what if we gave it a very brief input as a test, and saw what it did to the output? 
+                <br><br>
+                That brief test signal is called an <b class="important">impulse</b>. In the example of convolution reverb, you'd want to see how the room responds to all audible frequencies, so you would create an impulse that has an equal level of all frequencies, lasting for an extremely short period of time. Recording the output of this test, you receive a "digital snapshot" of what the room sounds like.
+                <br><br>
+                That output is the <b class="important">response</b>, and thus completes the name <b class="important">impulse response</b>. All a <b class="important">convolution reverb</b> plugin does is take the response of a room, or some other source, and <b class="important">convolve</b> it with the original signal in realtime. 
+                <br><br>
+                The concept of having an <b class="important">impulse response</b> isn't limited to audio; in fact, it's the core of how <b class="important">sonar</b> and <b class="important">radar</b> work. Both of these send out some <b class="important">impulse</b> wave in order to see the <b class="important">response</b>, examining the time it took to get back to the source in order to determine distance, for example. It's even used in <b class="important">economics</b>; through thinking about the value of money or stocks or some other data as a system, with the right amount of information you could test a change in it and receive the corresponding effect it would have. 
+                <br><br>
+                With these concepts, we're slowly building up the basics of DSP which we can then begin to apply to actual audio! In the next blog, or whenever I decide to talk about it afterwards, I would like to discuss the <b class="important">Laplace transform</b>, its <b class="important">inverse variant</b> (which also applies to the <b class="important">Fourier transform</b> and I should've discussed then), and the ever so essential <b class="important">transfer function</b>. I've seen that latter element in many a scientific paper so far, so I think once I understand what it is, my knowledge will really start to piece together. 
+            </p>
+            <h3 class="subsection"><u>The Fast Fourier Transform and Its Applications</u></h3>
+            <p>
+                So remember the <b class="important">Fourier transform</b>, that I talked about a few blogs ago? It's one of the most important computations involved in DSP (well, the <b class="important">Discrete Fourier transform</b> anyways because that's how computers process signals) but there's a small problem: it is incredibly slow to calculate. Sure, with our more advanced CPUs it's much faster than it was, say, in the 80's, and this isn't as much of an issue in scientific computing. But these need to occur in <b class="important">realtime</b>, so it would be much more efficient regardless to find ways of computing it fast. 
+                <br><br>
+                Enter the <b class="important">Fast Fourier Transform</b>. While it's not technically a single algorithm, the overall idea is to calculate the <b class="important">DFT</b> of a signal while significantly reducing the time it takes to run it (hence the name fast, get it?). In most cases, the complexity is reduced from O(N<sub>2</sub>) to O(N log N), which could speed up calculations enormously.
+                <br><br>
+                Fortunately, this is information that I think can be abstracted away for the moment, since it's just an implementation of a purpose I've already gone over. However, I still wanted to take a moment to mention it, because not only will it be extremely important going forward as a concept regardless, but perhaps I could learn one day when I'm more mathematically apt.
+            </p>
+            <h3 class="subsection"><u>Basics of Faust and Digital Signal Flow</u></h3>
+            <p>
+                Just like when learning about the concepts of DSP itself, it's good to think about <b class="important">Faust</b>, and for that matter any programming language you incorporate this into, in terms of <b class="important">signal flow</b>. You input data or signals, be it the frequency of an oscillator or the audio from your microphone, and it'll output the processed version of it.
+                <br><br>
+                There are two primary concepts in <b class="important">signal flow</b> that I'd like to cover today before getting to the syntax of <b class="important">Faust</b>: <b class="important">parameters</b> and <b class="important">audio buffers</b>.
+                <br><br>
+                <b class="important">Parameters</b> are fairly self-explanatory with a small twist. Yes, they're just data points that you use to shape how you're processing your sound, like the frequency of the <b class="important">cutoff</b> or a filter, or its <b class="important">Q factor</b>, but they're incorporated specifically so the <b>user</b> can change them at will. These are often programmed in the GUI as knobs or sliders, just like those you'd see on a synthesizer or some hardware unit. Fairly simple concept!
+                <br><br>
+                <b class="important">Audio buffers</b> are only a little more difficult to wrap your head around. If you recall how in digital audio, you're always working with discrete signals rather than continuous, then how exactly are those processed? Well, a program enters a certain amount of <b class="important">samples</b>, individual data points which are represented by <code>n</code> in <code>x[n]</code>, into their <b class="important">buffers</b>. This is usually some multiple of 8, matching with how 1 byte is equal to 8 bits, like 256, 512, or 1024. 
+                <br><br>
+                If you have <b class="important">too small</b> of a buffer, this may cause pops or clicks, since you're performing so many calculations on such a small amount of samples that it can't keep up with all the other samples. This obviously corresponds to an increase in CPU usage.
+                <br><br>
+                If you have <b class="important">too large</b> of a buffer, this introduces a large amount of <b class="important">latency</b>, meaning it'll take too long for the processed signal to output from the speakers and reach your ears. This can be a problem in live performance, when you need to play a note and have near immediate feedback, lest you throw off the performer. 
+                <br><br>
+                Luckily, this isn't something you'll need to manually code in <b class="important">Faust</b> (at least for audio buffers), as it's already optimized for the use case of audio processing anyways. In <b class="important">JUCE</b>, or if you're directly coding with the <b class="important">VST SDK</b> for example, you <b>do</b> need this knowledge because C++ is more general purpose and expects a level of technical knowledge about the frameworks you're using. This would be less of an issue for seasoned programmers, but it can represent a large learning curve for newcomers.
+                <br><br>
+                Also fortunately, the syntax of <b class="important">Faust</b> is incredibly straight-forward, as long as you're at least somewhat familiar with simple programming concepts.
+                <br><br>
+                First what you'll want to do is import the handy dandy standard library.
+            </p>
+            <div class="multi">
+                <code>
+                    import "stdfaust.lib";
+                </code>
+            </div>
+            <p>
+                Some people may not like semicolons when programming, and perhaps I'm in the minority, but I love them! I'm not even certain why, it's just instinct to put them in at this point, but it pleases me.
+                <br><br>
+                Anyways, you create variables the dynamic way, just like you'd do with Python.
+            </p>
+            <div class="multi">
+                <code>
+                    freq = 4000;
+                </code>
+            </div>
+            <p>
+                This is what we'll be using for the parameters of our system. In this example, I'll just be creating a simple filter with cutoff and quality parameters, since many are included in the standard library and it's a perfect first program. 
+                <br><br>
+                Oh and just to go over a few other things unique to <b class="important">Faust</b>, here's examples of the inclusion of <b class="important">metadata</b>, <b class="important">functions</b>, and <b class="important">expressions</b>, respectively. Here's a link to the <a href="https://faustdoc.grame.fr/manual/syntax/">manual</a> because I use it for a few examples and it has better explanations if needed; the code used for those examples are obviously not mine, just for clarification.
+            </p>
+            <div class="multi">
+                <code>
+                    // Any code as a comment cannot be used in an actual program, just pseudo-code<br>
+                    <br>
+                    // METADATA<br>
+                    // ----------<br>
+                    // This adds global metadata, in this case the author of a program<br>
+                    declare author "novafocks";<br>
+                    <br>
+                    // This declares function metadata for the linear2db function<br>
+                    declare linear2db author "the Faust people or something idk";<br>
+                    <br>
+                    // FUNCTIONS<br>
+                    // ----------<br>
+                    // This declares a function which converts a linear value to decibels; from the manual<br>
+                    linear2db(x) = 20*log10(x);<br>
+                    <br>
+                    // The process function is the required output for all Faust programs<br>
+                    // process = signal(parameters);<br>
+                    <br>
+                    // EXPRESSIONS<br>
+                    // ----------<br>
+                    // SEQUENTIAL, denoted with ":"><br>
+                    // Inputs to outputs, left to right<br>
+                    //<br>
+                    // EXAMPLE:<br>
+                    // This inputs an oscillator directly to a filter<br>
+                    // process = oscillator : filter(parameters);<br>
+                    // ----------<br>
+                    // PARALLEL, denoted with ","<br>
+                    // Multiple signals at the same time<br>
+                    //<br>
+                    // EXAMPLE:<br>
+                    // This stacks multiple oscillators on top of each other<br>
+                    // process = oscillator1(freq1),oscillator2(freq2),oscillator3(freq3);<br>
+                    // ----------<br>
+                    // SPLIT, denoted with "<:"<br>
+                    // Distributes outputs of function to another<br>
+                    //<br>
+                    // EXAMPLE:<br>
+                    // This outputs a single oscillator to three filters<br>
+                    // process = oscillator(oscfreq) <: filter1(freq1),filter2(freq2),filter3(freq3);<br>
+                    // ----------<br>
+                    // MERGE, denoted with ":>"<br>
+                    // Sums outputs of function, functions similarly to SPLIT<br>
+                    //<br>
+                    // EXAMPLE:<br>
+                    // This sums three oscillators for one filter<br>
+                    // process = oscillator1(freq1),oscillator2(freq2),oscillator3(freq3) :> filter(ffreq);<br>
+                    // ----------<br>
+                    // RECURSIVE, denoted with "~"<br>
+                    // For use in recursive algorithms that have feedback<br>
+                    //<br>
+                    // EXAMPLE (taken from manual):<br>
+                    // This implements a one pole filter of an audio input using recursion<br>
+                    a1 = 0.999;<br>
+                    process = +~*(a1);<br>
+                </code>
+            </div>
+            <p><b class="important">
+                Editor's note: I think that it would probably be smarter to just post code examples on Github instead; converting this manually to HTML is excruciating (even though that's likely not what you're supposed to do anyways).
+            </b></p>
+            <p>
+                In terms of viewing the signal flow of any <b class="important">Faust</b> program, they provide incredibly clean diagrams, including all of the math involved. But let's see it in the filter example!
+                <br><br>
+                So here's the entire program:
+            </p>
+            <div class="multi">
+                <code>
+                    import("stdfaust.lib");<br>
+                    <br>
+                    freq = hslider("freq", 5000, 20, 20000, 0.1);<br>
+                    q = hslider("q", 1, 0.1, 2, 0.01);<br>
+                    gain = hslider("gain", 0.8, 0, 1, 0.01);<br>
+                    <br>
+                    process = no.noise : fi.resonlp(freq, q, gain);
+                </code>
+            </div>
+            <p>
+                This program incorporates the primitive type <code>hslider</code>, by the way, which creates sliders so the user could modulate given parameters. We created parameters for <b class="important">frequency</b>, <b class="important">quality</b>, and <b class="important">gain</b>, which are what the low-pass filter ask for as inputs. I created white noise using <code>no.noise</code>,  and used the sequential expression to input it into the <code>resonlp</code> function, which is a simple resonant low-pass filter based on virtual analog design.
+                <br><br>
+                Here's the diagram it shows for the signal flow:
+            </p>
+            <img>
+            <p>
+                Quite simple, just shows the noise as input to the resonant low pass, but hey wait a second, what's this?
+            </p>
+            <img>
+            <p>
+                That's right, you can see exactly what the filter is doing under the hood by clicking on it! You could even do the same with the noise, or any function! This will make <b class="important">Faust</b> an incredibly powerful tool for me, since it has so many examples of each technology I'd like to dive into.
+                <br><br>
+                I've converted all of the library documentation into local PDFs, so I could access this anywhere I'd like, and installed the official compiler through Homebrew. With that solidified as such an excellent exploration tool, I'm ecstatic to explore this further.
+            </p>
+            <h3 class="subsection"><u>Random Thoughts</u></h3>
+            <p>
+                I had a quickfire of random thoughts that I wanted to go over, so let's enter the lightning round!
+            </p>
+            <h4 class="subsection" style="color: var(--red1)"><u>College Applications</u></h4>
+            <p>
+                So I'm a senior in high school now, and you know what that means! It's time to start applying for colleges. Yeah, as you can tell, I've kinda had a lot on my plate lately when it comes to school. While I do live in Colorado and there are some amazing schools here, I'd love to see if I can apply for and afford one near or in <b class="important">New England</b>. I was born in Worcester, Massachusetts after all, and I used to live near there before I moved. Me and my family visited Boston recently and I loved the hell out of it, so studying there would be an absolute dream. Alright, first quick thought over.
+            </p>
+            <h4 class="subsection" style="color: var(--red1)"><u>Linear Algebra</u></h4>
+            <p>
+                At this point, I have no idea what exactly linear algebra is, but I have heard that it is important to signal processing *and* computer science, which I am planning to have for my major. So why not learn it early?
+                <br><br>
+                Well, perhaps that's a bit hasty, what with all the SAT practice and physics stuff I still have to complete over summer, but I find the idea of learning quite interesting (and yeah, I know that a lot of math does just involve practice, which I am famously not known for doing well with self-discipline). However, that leads me into my next random thought.
+            </p>
+            <h4 class="subsection" style="color: var(--red1)"><u>Jumping Around</u></h4>
+            <p>
+                I jump around a lot, between different languages and frameworks and math concepts and I understand that it's easy to give the impression that I'm not very organized. I am extremely aware of that, and hell, I hate it too. But I wanted to offer a bright side to it that at least applies for the time being.
+                <br><br>
+                I'm 17, and I'm still learning what exactly I want to do and how and why, while figuring out how life and productivity even works. Experimentation really helps me figure that out, I think; it's like a way to try out a bunch of different things to see what sticks well to me. 
+                <br><br>
+                I don't know if I'll be interested in the same subjects five years down the road, or even in college! But it's as if I'm putting the pressure on myself to <b class="important">do</b> a lot, when I don't even know <b class="important">why</b>. What's the harm in figuring out both at the sime time while you're young?
+                <br><br>
+                Anyways, that's all for today. Goodness, this is quite long. Oh well. Have a good night, y'all!
+            </p>
+            <a href="/blog/index.html">Back to Catalogue</a>
+        </div>
+    </div>
+</body>
+</html>
