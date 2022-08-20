@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIR and IIR Filters (and a Confession) - novafocks' Blog</title>
+
+    <link rel="stylesheet" href="/css/gruv.css">
+</head>
+<body>
+    <div class="box">
+        <div class="container">
+            <h1 class="header">2022-08-19 - FIR and IIR Filters (and a Confession)</h1>
+            <h3 class="subheader">Plus notes from vacation!</h3>
+            <hr class="divider">
+            <p>
+                Hi y'all, sorry the post took so long <b class="important">(for a full explanation on why, see later in the blog)</b>. I've been on vacation, and you're seeing this blog after I'm back home. Unfortunately, I couldn't post anything while on the cruise since Wi-Fi is a rip-off here, but I thought it would be fun to detail some of the things I got up to while I've been here for the first section.
+                <br><br>
+                Also, I may or may not have downloaded at least <b class="important">twenty synthwave and vaporwave mixes</b> from YouTube because I thought the aesthetic would match the cruise. Oh, and the Earthbound and Stellaris soundtracks in full. Me and my brother, who's been visiting, have been playing through Earthbound, and we plan to finish it there, so that'll be fun! <b class="important">(Editor's note: it was much longer than we realized and we weren't even close to finished)</b>
+            </p>
+            <h3 class="subsection"><u>Seattle, WA</u></h3>
+            <p>
+                So we flew directly to <b class="important">Seattle, Washington</b> initially because that was the point of takeoff, and where my other, older brother coincidentally lives! Even for the couple days we were able to be there, you'd think we were there a week with everything we explored. 
+                <br><br>
+                The first thing I noticed is that everyone is some level of <b class="important">gay</b> here, and oh boy I've been loving it! Pride flags everywhere, so many feminine voices, and there's a general atmosphere of flamboyance. Perhaps this is a strange thing to notice and appreciate, but I don't care; the fruit dripping in the atmosphere is strong, and my capacity for loving that is boundless. Diversity is a treasure that I will never not embrace.
+                <br><br>
+                Otherwise, here's a just a few things we did while we were here:
+            </p>
+            <ul>
+                <li>Visited the <b class="important">Museum of Pop Culture</b> and it was fantastic, especially <b class="important">Sound Jam</b> and the <b class="important">Indie Game Revolution</b> section</li>
+                <li>Explored the vast campus of the <b class="important">University of Washington</b> in Seattle, and I may or may not want to go there now</li>
+                <li>Ate at the <b class="important">Five Point Cafe</b>, very solid food and a historic location</li>
+                <li>Visited <b class="important">Pikes Place</b> and <b>almost</b> went into some shop that only sells purple items, which we never found the time to do</li>
+                <li>Ate <b class="important">Phở</b> in ice bucket containers at our hotel because we forgot we needed a place to actually put our food while we eat it</li>
+                <li>Took the <b class="important">Underground tour</b> and learned about prostitutes, always fun (and spotted an employee with Hazbin Hotel merch, hell yes)</li>
+                <li>Briefly visited <b class="important">Gasworks</b>, quite an interesting walk</li>
+                <li>Finally, quickly decided against the very concept of watching <b class="important">Minions 2: Rise of Gru</b> here</li>
+            </ul>
+            <p>
+                I've absolutely adored Seattle so far, it's a wonderful city that bleeds history, especially in music and technology. (It has also been a secret dream of mine to work at <b class="important">Valve</b> or <b class="important">Nintendo of America</b>, so I admit that I am biased here; plus, <b class="important">Google</b> and <b class="important">Apple</b> also employ heavily here)
+                <br><br>
+                And yeah, you do see a lot of people experiencing homelessness in the streets or just doing drugs, but it didn't really bother me as much as I'd expect; I'd probably just avoid those areas if it did. There was also a couple just kissing and caressing each other while lying on the sidewalk once, that was funny but not alarming.
+                <br><br>
+                Working and living here, besides the high cost, seems quite nice. I'll add it to the list of possibilities, and I'm definitely applying to <b class="important">University of Washington</b>. 
+            </p>
+            <h3 class="subsection"><u>Halfway Through the Cruise</u></h3>
+            <p>
+                I'm not certain if there's simply something wrong with me or otherwise, but when there's so much to do aboard a massive ship, it feels more boring than if I was given a Thinkpad with Linux on it and told to create whatever the hell I want. Ping-pong and pools and dodgeball can only satisfy me for so long before I just want to reclude back to my small space and be around computers for a little longer.
+                <br><br>
+                Don't get me wrong, I have <b class="important">loved</b> it so far! Endless food, a surprisingly great teen hangout space, and even a few friends! But I think I can safely say that cruises aren't my ideal vacation targets now; I think I'd be more content staying in a <b class="important">city</b> I'd love to visit, like New York City or something, and renting a place there so that I can explore the rest of the time. That's mostly the reason there's already a section dedicated to <b class="important">Seattle</b> anyways, so that's proof for the claim. 
+                <br><br>
+                Given that I'm not the type to endlessly entertain the many enjoyable experiences aboard a cruise, why not talk about something <b class="important">technical</b> instead? After all, I downloaded a cacophany of resources before I left because I felt this was going to happen regardless!
+                <br><br>
+                Let's talk about <b class="important">FIR</b> and <b class="important">IIR</b> filters to further develop the mathematical foundation I need to get started with signal processing.
+            </p>
+            <h3 class="subsection"><u>The s and z Transforms</u></h3>
+            <p>
+                So remember how <b class="important">impulse responses</b> are a method of measuring how a system processes signals? Turns out that's foundational to filter design, go figure! The <b class="important">IR</b> in <b class="important">FIR</b> and <b class="important">IIR</b> stand for it, after all.
+                <br><br>
+                But before we go over that subject matter, I should briefly introduce the <b class="important">Laplace (or s) and z transforms</b>. Where the <b class="important">Fourier transform</b> is usually used for analysis for periodic signals, the <b class="important">Laplace transform</b> is used for electronic circuits that pass continuous signals, and the <b class="important">z transform</b> is essentially the discrete equivalent used in digital processing. They all, however, perform the same function: <b class="important">convert signals from the time domain to the frequency domain</b>. Though the latter two do something a little different.
+                <br><br>
+                Here is the definition of the <b class="important">Laplace transform</b>, directly from Google:  
+            </p>
+            <img src="/resources/images/laplace.png">
+            <p>
+                From the use of an integral in the equation, you could easily guess where the <b class="important">z transform</b> differs, being the discrete equivalent. But first, what exactly does this mean? What relevance does <code>s</code> have here?
+                <br><br>
+                This function transforms a function <code>f(t)</code>, usually of the time domain as denoted by <code>t</code>, into the functon <code>F(s)</code>, representing the frequency domain using the variable <code>s</code>.
+                <br><br>
+                <code>s</code> is defined as a complex number, with this standard notation:
+            </p>
+            <img src="/resources/images/complex.png">
+            <p>
+                Recall that the <b class="important">Fourier transforms</b> also introduced complex numbers, and I forget if I touched on this in that blog post, but this means that all we're doing is using the <b class="important">complex plane</b>.
+                <br><br>
+                Imagine your typical graph of <code>x</code> and <code>y</code>. You have an <b class="important">x-axis</b>, which is horizontal, and your <b class="important">y-axis</b>, which is vertical. Let's say you have a simple linear function of the notation <code>y=mx+b</code>, and I'll just do <code>y=2x+1</code>. In this situation, you have just <b class="important">two variables</b>. But there's a way to represent this with only <b class="important">one</b>.
+                <br><br>
+                Now imagine a <b class="important">number line</b> with all real numbers on it. It's one dimensional, and you can move left and right as you wish, but you can't move up or down because you don't have enough dimensions.
+                Imagine a <b class="important">secondary number line</b> with all real numbers, except they are multipled by <code>i</code>. That's the second dimension, the vertical axis of the complex plane. And if you take the notation <code>mx+b</code> and replace the <code>x</code> with <code>i</code>, then you have the complex number notation. Awesome.
+                <br><br>
+                Well, okay, I vastly oversimplified it (as I do with a lot of things), but that's the general gist you could use to visualize it in your head. And now to touch on what exactly the <b class="important">Laplace transform</b> does here.
+                <br><br>
+                <b class="important">Editor's note: I tried to get extremely mathematical with it, and in doing so I spawned the next section of this blog, and made it so this came out a long time after I wanted. I'll go into more detail there, you'll see.</b>
+                <br><br>
+                So in short, the <b class="important">Laplace transform</b> takes the function of time and does some stuff in the complex plane to create its function of frequency. And the <b class="important">z-transform</b> is the equivalent of that for discrete signals, using <b class="important">summation</b> instead of an integral.
+                <br><br>
+                Lastly, I wanted to touch upon what the terminology of <b class="important">FIR</b> and <b class="important">IIR</b> mean exactly.  
+                <br><br>
+                <b class="important">FIR</b> stands for <b class="important">finite impulse response</b> while <b class="important">IIR</b> stands for <b class="important">infinite impulse response</b>, which is a surprisingly simple concept to wrap your head around. While <b class="important">FIR</b> filters can only have a certain length for its impulse, <b class="important">IIR</b> filters allow for feedback and can theoretically have an infinite impulse. The latter are great for simulating analog circuitry more accurately in math, but introduce some <b class="important">non-linear phase tomfoolery</b>, which I should get around to learning about at some point. The former, however, have <b class="important">linear phase characteristics</b> and are generally more predictable, but are more computationally expensive and introduce higher latency.
+                <br><br>
+                You're going to see this terminology all the time, so it's better to at least get comfortable with the concepts behind it while you can.
+                <br><br>
+                And now for a <b class="important">confession</b>.
+            </p>
+            <h3 class="subsection"><u>Oh boy, what have I done?</u></h3>
+            <p>
+                This may be the most important blog post written to date; I don't believe this because of its <b class="important">content</b> necessarily, but what I learned trying to look into the math of the <b class="important">Laplace transform</b>.
+                <br><br>
+                You might notice that there's an editor's note where there would otherwise be a massive technical explanation, and that it turns right back to being strongly <b class="important">conceptual</b> rather than <b class="important">mathematical</b>. This is because of a realization that I slowly came to over the course of the past week: <b class="important">I'm trying to learn stuff well above my head, using equations and concepts that I've never seen before</b>. And while I admit it's because I mostly wanted to get this post out the door so I can move on, the point still stands for me.
+                <br><br>
+                Don't panic, don't panic; this doesn't mean that I'll be discarding super high level math here. As a matter of fact, I actually developed a much stronger love for learning math during this time! But after opening <b class="important">Python</b> in VSCode and trying to wrap my head about how I could apply this knowledge in <b class="important">Numpy</b>, I realized that I need to do two things going forward: take the math slower by doing some more <b class="important">practice</b> with what I already know, and try to get my head stuck out of extremely <b class="important">fundamental</b> topics.
+                <br><br>
+                This will be quite a big change in my approach, and I'll probably try and incorporate this into <b class="important">Jupyter Notebooks</b> if I can, because I think that would be both really cool and an extremely effective approach.
+                <br><br>
+                I also realized upon re-watching the <b class="important">JUCE</b> tutorial that there's practically no <b class="important">DSP</b> knowledge incorporated into it, it's just all <b class="important">C++</b>. They import <b class="important">IIR filters</b> from the base library and use that to design instead.
+                <br><br>
+                Basically, what I'm trying to get to is: it's been incredibly fun to study the exact composition of the audio tools I use, but this isn't a <b class="important">DSP calculus class</b>, this is a <b class="important">blog</b>, I want to make something more out of this.
+                <br><br>
+                On top of that, <b class="important">school has started</b> and my classes ramped up significantly quicker than previous years, so I can't devote <b>all</b> of my time to learning this anymore. Granted, studying this outside of school has been one of my favorite things to do, but I'm becoming frustrated with the concepts I'm struggling to wrap my head around. I need more <b class="important">time</b> and I need a <b class="important">fresh approach</b>.
+                <br><br>
+                Additionally, I think this needs to start becoming a bit more <b class="important">musical</b> than it has; I got into this because of music and neglecting that has probably been a big mistake thus far.
+                <br><br>
+                I also think I'm going to lay off doing <b class="important">web development</b>; I tried to dive into <b class="important">React</b> but it just didn't spawn the same level of interest that I wish it did. Doing a blog focused on my main passion of <b class="important">audio signal processing</b> would feel a lot better than fragmenting it, after all. 
+                <br><br>
+                I'm not entirely certain how much of this I'll follow up on, but I needed to break free of the mold I created for myself here. It's been slowing me down, and once again, has been making the blog feel more like a drag. Time will tell how much of an improvement this attitude would make, but what's improvement if not <b class="important">failure after failure</b>, getting better with each step, until eventually you reach your goal? The world moves too fast for me to stay stuck in the past.
+                <br><br>
+                I hope y'all are doing well, and I am highly looking forward to see what the next blog brings! 
+            </p>
+            <a href="/blog/index.html">Back to Catalogue</a>
+        </div>
+    </div>
+</body>
+</html>
