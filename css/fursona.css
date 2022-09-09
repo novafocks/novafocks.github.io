@@ -31,6 +31,7 @@ a {
 
 body {
     background-color: var(--sona-black0);
+    color: var(--sona-white);
 }
 
 img {

@@ -56,11 +56,17 @@ code {
     font-family: Fira Code;
     font-size: 0.9rem;
     border: solid 3px;
+    border-radius: 3px;
 }
 
 html {
     font-family: Fira Sans;
     font-size: calc(1rem + 0.4vw);
+}
+
+i {
+    font-weight: bold;
+    font-style: normal;
 }
 
 img {

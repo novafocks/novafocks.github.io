@@ -48,10 +48,6 @@
     color: var(--green1);
 }
 
-.important {
-    color: var(--red1)
-}
-
 .multi {
     background-color: var(--bg1);
     border-color: var(--bg1);
@@ -66,6 +62,10 @@ a {
     color: var(--fg0);
 }
 
+b {
+    color: var(--red1);
+}
+
 body {
     background-color: var(--bg1);
     color: var(--fg1);
@@ -74,6 +74,5 @@ body {
 code {
     background-color: var(--bg1);
     border-color: var(--bg1);
-    border-radius: 3px;
     color: var(--aqua1);
 }
