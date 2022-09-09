@@ -62,7 +62,7 @@ a {
     color: var(--fg0);
 }
 
-b {
+b, strong {
     color: var(--red1);
 }
 
