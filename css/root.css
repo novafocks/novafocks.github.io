@@ -50,6 +50,8 @@
 .subsection {
     margin-top: 0.4vh;
     margin-bottom: 0.4vh;
+
+    text-decoration: underline;
 }
 
 code {
@@ -64,7 +66,7 @@ html {
     font-size: calc(1rem + 0.4vw);
 }
 
-i {
+em, i {
     font-weight: bold;
     font-style: normal;
 }
