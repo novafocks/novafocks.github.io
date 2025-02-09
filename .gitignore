@@ -1,2 +1,9 @@
-.DS_Store
-/blog/unreleased
+# Jekyll-generated ignores
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+
+# Personal ignores
+./legacy
