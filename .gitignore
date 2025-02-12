@@ -6,4 +6,5 @@ _site
 vendor
 
 # Personal ignores
-./legacy
+legacy
+.idea
