@@ -8,3 +8,4 @@ vendor
 # Personal ignores
 legacy
 .idea
+.DS_Store
