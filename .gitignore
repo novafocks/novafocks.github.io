@@ -6,6 +6,8 @@ _site
 vendor
 
 # Personal ignores
-legacy
 .idea
 .DS_Store
+
+# Post draft location
+_drafts
